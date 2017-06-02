@@ -13,7 +13,7 @@ namespace canvas.Models
         {
             Database.SetInitializer<CanvasSeaDBContext>(null);
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<FoodModel>().ToTable("");
+            modelBuilder.Entity<FoodModel>().ToTable(""); 
             modelBuilder.Entity<FoodModel>().HasKey(x => x.ID);
         }
     }
