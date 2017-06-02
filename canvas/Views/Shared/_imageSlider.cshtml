@@ -1,0 +1,146 @@
+﻿<html>
+<head>
+    <style>
+                .slide {
+                    width: 100%;
+                    height: 100%;
+                }
+
+
+                    .slide > ul {
+                        padding: 0;
+                        margin: 0;
+                        background-color: #FFF;
+                    }
+
+                        .slide > ul > li {
+                            list-style: none;
+                            min-height: 500px;
+                            padding: 1em 4em;
+                            background-color: #000;
+                            box-sizing: border-box;
+                        }
+
+                        /* Recommended style...
+            only show first item in glider targets unless JavaScript runs
+        */
+                        .slide > ul > li {
+                            display: none;
+                        }
+
+                            .slide > ul > li:first-child {
+                                display: block;
+                            }
+                            /* - */
+
+                            .slide > ul > li:nth-child(odd) {
+                                text-align: right;
+                            }
+
+                            .slide > ul > li:nth-child(even) {
+                                text-align: left;
+                            }
+
+                            .slide > ul > li h3 {
+                                /* Removal speed */
+                                transition: opacity 0.2s ease;
+                                margin-top: 5em;
+                                display: inline-block;
+                                padding: 1em;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                color: #FFF;
+                                font-size: 2em;
+                                width: 30%;
+                                opacity: 1;
+                            }
+
+                            .slide > ul > li.selected h3 {
+                                opacity: 1;
+                                /* Arriving speed */
+                                transition: opacity 0.5s ease;
+                            }
+
+                            .slide > ul > li.leaving h3 {
+                                opacity: 0;
+                                /* Removal speed */
+                                transition: opacity 0.2s ease;
+                            }
+
+                            .slide > ul > li.arriving h3 {
+                                opacity: 0;
+                                /* Removal speed */
+                                transition: opacity 0.2s ease;
+                            }
+
+                            .slide > ul > li > div {
+                                /* Removal speed */
+                                transition: opacity 0.2s ease;
+                                display: inline-block;
+                                padding: 1em;
+                                background-color: rgba(0, 0, 0, 0.5);
+                                color: #FFF;
+                                font-size: 1.5em;
+                                opacity: 1;
+                            }
+
+                            .slide > ul > li.selected div {
+                                opacity: 1;
+                                /* Arriving speed */
+                                transition: opacity 0.5s ease;
+                                /* Arriving delay */
+                                -webkit-transition-delay: 0.2s;
+                                -moz-transition-delay: 0.2s;
+                                -o-transition-delay: 0.2s;
+                                transition-delay: 0.2s;
+                            }
+
+                            .slide > ul > li.leaving div {
+                                /* Removal speed */
+                                transition: opacity 0.2s ease;
+                                opacity: 0;
+                            }
+
+                            .slide > ul > li.arriving div {
+                                /* Removal speed */
+                                transition: opacity 0.2s ease;
+                                opacity: 0;
+                            }
+    </style>
+    <link href="~/Content/glider.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div dir="ltr" class="slide" data-glider-autoplay>
+        <ul>
+            <li style="background-image: url('/images/demo/backgrounds/cover1.png'); background-size: cover; "></li>
+            <li style="background-image: url('/images/demo/backgrounds/cover2.png'); background-size: cover; "></li>
+            <li style="background-image: url('/images/demo/backgrounds/cover3.png'); background-size: cover; "></li>
+            <li style="background-image: url('/images/demo/backgrounds/cover5.png'); background-size: cover; "></li>
+            <li style="background-image: url('/images/demo/backgrounds/cover4.png'); background-size: cover; "></li>
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/glider.js"></script>
+    <script>
+        // You get an array of gliders, one for each matching container
+        var gliders = $('.slide').glider();
+
+        var index = 10;
+        $('#controls-ltr')
+            .append(gliders[index].getBackControl('', '&lt;--'))
+            .append(gliders[index].getLinkControl('', function (i) { return i + 1; }))
+            .append(gliders[index].getNextControl('', '--&gt;'));
+
+        index = 11;
+        $('#controls-rtl')
+            .append(gliders[index].getBackControl('', '&lt;--'))
+            .append(gliders[index].getLinkControl('', function (i) { return i + 1; }))
+            .append(gliders[index].getNextControl('', '--&gt;'));
+
+        // Events
+        // $window.on('gliderSlideArriving', function(e, glider, slide) {
+        //     console.log('Arriving: ' + glider.id + ' : ' + slide.text());
+        // });
+    </script>
+</body>
+</html>

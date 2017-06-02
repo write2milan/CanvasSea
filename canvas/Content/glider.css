@@ -1,0 +1,53 @@
+
+.glider {
+    overflow: hidden;
+    position: relative;
+    max-width: 100% !important;
+}
+
+.glider-list {
+    position: relative;
+}
+
+.glider-ltr .glider-list {
+    left: 0;
+}
+
+.glider-rtl .glider-list {
+    right: 0;
+}
+
+.glider-ltr.ease .glider-list {
+    transition: left 0.5s ease;
+}
+
+.glider-rtl.ease .glider-list {
+    transition: right 0.5s ease;
+}
+
+.glider .glider-item {
+    display: block;
+    box-sizing: border-box;
+}
+
+.glider-rtl .glider-item {
+    float: right;
+}
+
+.glider-ltr .glider-item {
+    float: left;
+}
+
+.glider-top {
+    top: 0;
+}
+
+.glider-middle {
+    top: 100%;
+}
+
+.glider-bottom {
+    bottom: 0;
+}
+
+
